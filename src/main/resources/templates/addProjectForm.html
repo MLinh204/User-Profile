@@ -20,17 +20,17 @@
   <input type="hidden" th:field="*{user.id}">
   <div class="input">
   <label>Project Name: </label><br>
-    <input type="text" th:field="*{projectName}" required>
+    <input type="text" th:field="*{projectName}" placeholder="Project Name*" required>
   </div>
   <div class="input">
   <label>Project Description: </label><br>
-    <textarea th:field="*{projectDescription}" required style="width: 100%;"></textarea>
+    <textarea th:field="*{projectDescription}" placeholder="Description*" required style="width: 100%;"></textarea>
   </div>
   <label>Project Technologies: </label><br>
-  <input type="text" th:field="*{projectTechnologies}" required>
+  <input type="text" th:field="*{projectTechnologies}" placeholder="Technologies Used*" required>
   <div class="input">
   <label>User Position: </label><br>
-    <input type="text" th:field="*{userPosition}" required>
+    <input type="text" th:field="*{userPosition}" placeholder="Position*" required>
   </div>
   <button type="submit">Add Project</button>
 </form>

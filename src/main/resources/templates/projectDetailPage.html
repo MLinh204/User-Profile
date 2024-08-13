@@ -21,8 +21,10 @@
 <p th:text="'Description: ' + ${project.projectDescription}"></p>
 <p th:text="'Technologies: ' + ${project.projectTechnologies}"></p>
 <p th:text="'User Position: ' + ${project.userPosition}"></p>
-  <a class="a-tag-edit" th:href="@{/projects/edit/{id}(id=${project.id})}">Edit User Profile</a>
-  <a class="a-tag-edit" th:href="@{/users/{id}(id=${project.user.id})}">Back to User Profile</a>
+  <div class="btn-holder">
+    <a class="a-tag-edit" th:href="@{/projects/edit/{id}(id=${project.id})}">Edit User Project</a>
+    <a class="a-tag-edit" th:href="@{/users/{id}(id=${project.user.id})}">Back to User Profile</a>
+  </div>
 </div>
 </div>
 <div th:replace="fragments :: bottom"></div>

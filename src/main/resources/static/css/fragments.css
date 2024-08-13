@@ -28,6 +28,7 @@ body{
     gap: 10px;
     border: 1px solid;
     color: #039be5;
+    background: rgba(0, 0, 0, .8);
 }
 .a-tag-edit:hover{
     filter: brightness(0.5)
@@ -75,6 +76,8 @@ color: white;
 background-color: transparent;
 border: solid;
 padding: 5px;
+background: rgba(0, 0, 0, .8);
+color: #039be5;
 }
 .bg-img{
         background-image: url("../static/picture/bg-img.jpg");
@@ -94,15 +97,20 @@ padding: 5px;
         background-color: aliceblue;
         padding: 10px;
         margin-top: 50px;
+        position: fixed;
+        width: 100%;
+        bottom:0;
 }
 
 .form-container{
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 400px;
-    width: 100%;
+        background: rgba(0, 0, 0, .8);
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 400px;
+        width: 100%;
+        color: white;
+        border: #039be5 2px solid;
 }
 
 .Wrapper{
@@ -117,21 +125,32 @@ padding: 5px;
 
 .input{
 margin-bottom: 15px;
+margin-top: 15px;
 }
 input[type="text"]{
 width:100%;
 }
 input[type="number"]{
-width:10%;
+    width:10%;
+    background: gray;
+    color: white;
 }
 .detail-container{
-    background: aliceblue;
-    box-shadow: 0 0 10px #18181b;
-    padding: 20px;
-}
-.wrapper-detail{
+            background: aliceblue;
+            box-shadow: 0 0 10px #18181b;
+            padding: 20px;
+            justify-content: center;
+            position: absolute;
+            display: grid;
+            height: 400px;
+            width: 50%;
 
 }
+.wrapper-detail{
+    margin: auto;
+    width: 50%;
+}
+
 .project-container{
 min-height:100vh;
 }
@@ -198,10 +217,42 @@ video{
     object-fit: fill;
 }
 input[type="text"]{
-border: none;
-border-bottom: 1.5px solid;
+    border: none;
+    color: white;
+    border-bottom: 1.5px solid;
+    background-color:transparent;
+    font-size: 15px;
+    padding: 5px;
+    margin-top: 6px;
 }
+textarea{
+    border: none;
+    color: white;
+    border-bottom: 1.5px solid;
+    background-color:transparent;
+}
+
+button[type="submit"]{
+    background: linear-gradient(120deg, transparent, var(--primary-color), transparent);
+    transition: 0.6s;
+    padding: 10px;
+    color: cornflowerblue;
+
+    &::hover{
+        background: transparent;
+        box-shadow: 0 0 20px 10px hsla(204, 70%, 53%, 0.5);
+    }
+}
+
 label{
-border-bottom: 1.5px solid;
+    margin-left: 5px;
+}
+
+.btn-holder{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 15px;
+    margin-right: 5px;
 }
 

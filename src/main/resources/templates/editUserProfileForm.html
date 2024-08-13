@@ -19,7 +19,7 @@
         <form th:action="@{/users/edit/{id}(id=${user.id})}" th:object="${user}" method="post">
             <div class="input">
                 <label>Name: </label><br>
-                <input type="text" th:field="*{name}" required>
+                <input type="text" th:field="*{name}" placeholder="Name*" required>
             </div>
             <div class="input">
                 <label>Age: </label><br>
@@ -27,15 +27,14 @@
             </div>
             <div class="input">
                 <label>Position: </label><br>
-                <input type="text" th:field="*{position}" required>
-            </div>
+                <input type="text" th:field="*{position}" placeholder="Position*" required>            </div>
             <div class="input">
                 <label>Year of Experience: </label><br>
                 <input type="number" th:field="*{yearOfExperience}" required>
             </div>
             <div class="input">
                 <label>Profile Picture URL: </label><br>
-                <input type="text" th:field="*{profilePicture}" required>
+                <input type="text" th:field="*{profilePicture}" placeholder="URL to your profile picture*" required>
             </div>
             <button type="submit">Save</button>
         </form>
