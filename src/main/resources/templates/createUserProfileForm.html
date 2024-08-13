@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create User</title>
+    <link rel="stylesheet" th:href="@{/css/fragments.css}">
+
+</head>
+<body>
+<div class="video-container">
+    <video autoplay loop muted>
+        <source th:src="@{/Video/videoplayback.mp4}" type="video/mp4">
+    </video>
+</div>
+<div th:replace="fragments :: top"></div>
+<div class="Wrapper">
+<div class="form-container">
+    <h2>Create User Profile</h2>
+<form th:action="@{/users/create}" th:object="${user}" method="post">
+    <div class="input">
+    <input type="text" th:field="*{name}" placeholder="Name*" required>
+    </div>
+    <div class="input" style="display: flex; gap: 4px;">
+        <label>Profile Picture URL: </label><br>
+        <input type="number" value="" th:field="*{age}" required>
+    </div>
+    <div class="input">
+        <input type="text" th:field="*{position}" placeholder="Position*" required>
+    </div>
+    <div class="input" style="display: flex; gap: 4px;">
+        <label>Year Of Experience: </label><br>
+        <input type="number"  th:field="*{yearOfExperience}" required>
+    </div>
+    <div class="input">
+        <input type="text" th:field="*{profilePicture}" placeholder="URL to your profile picture*" required>
+    </div>
+    <button type="submit">Save</button>
+</form>
+</div>
+</div>
+<div th:replace="fragments :: bottom"></div>
+
+</body>
+</html>

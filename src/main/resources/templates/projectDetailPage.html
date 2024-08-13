@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Detail</title>
+  <link rel="stylesheet" th:href="@{/css/fragments.css}">
+
+</head>
+<body>
+<div class="video-container">
+  <video autoplay loop muted>
+    <source th:src="@{/Video/videoplayback.mp4}" type="video/mp4">
+  </video>
+</div>
+<div th:replace="fragments :: top"></div>
+
+<h1>Your Project</h1>
+<div class="wrapper-detail">
+<div class="detail-container">
+<h2 th:text="'Project: ' + ${project.projectName}"></h2>
+<p th:text="'Description: ' + ${project.projectDescription}"></p>
+<p th:text="'Technologies: ' + ${project.projectTechnologies}"></p>
+<p th:text="'User Position: ' + ${project.userPosition}"></p>
+  <a class="a-tag-edit" th:href="@{/projects/edit/{id}(id=${project.id})}">Edit User Profile</a>
+  <a class="a-tag-edit" th:href="@{/users/{id}(id=${project.user.id})}">Back to User Profile</a>
+</div>
+</div>
+<div th:replace="fragments :: bottom"></div>
+</body>
+</html>

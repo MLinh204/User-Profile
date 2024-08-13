@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/fragments.css}">
+
+</head>
+<body>
+
+<div th:fragment="top" class="top-fragment">
+    <div class="top">
+       <a class="logo" th:href="@{/users}"> <img th:src="@{/picture/Logo.png}" alt="Logo" style="height: 100px"> </a>
+        <nav>
+            <a class="a-tag-edit" href="/users">User Profile List</a>
+        </nav>
+    </div>
+</div>
+
+<div th:fragment="bottom">
+    <div class="bottom">
+    <p>User email: JohanL@Johan.com</p>
+    <p>Web usage: Personal portfolio and project showcase</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/fragments.css}">
+</head>
+<body>
+<div class="video-container">
+    <video autoplay loop muted>
+        <source th:src="@{/Video/videoplayback.mp4}" type="video/mp4">
+    </video>
+</div>
+<div th:replace="fragments :: top" class="home-top">
+</div>
+<div>
+<h1>User Profile List</h1>
+<div>
+    <button class="top-right-button" onclick="location.href='/users/create';">Create User Profile</button>
+</div>
+<div>
+  <div class="user-container" th:each="user : ${users}">
+    <img class="profile-img" th:src="${user.profilePicture}" alt="Profile Picture">
+      <div class="info-container">
+    <h2 th:text="${user.name}"></h2>
+    <p th:text="'Age: ' + ${user.age}"></p>
+          <div class="edit-profile-btn" style="display: inline-grid;">
+    <a class="a-tag-edit" th:href="@{/users/{id}(id=${user.id})}">View Profile</a> <br>
+              <a class="a-tag-edit" th:href="@{/users/edit/{id}(id=${user.id})}">Edit User Profile</a>
+    <a class="a-tag-edit" th:href="@{/users/delete/{id}(id=${user.id})}" style="margin-top:15px; background-color: #ae3434; color: #f4f4f5;" onclick="return confirm('Are you sure you want to delete this user?');">Delete User</a><br>
+
+
+
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+<div th:replace="fragments :: bottom"></div>
+</body>
+</html>
