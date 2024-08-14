@@ -1,6 +1,9 @@
 body{
-    background-color: #3f3f46;
-    height:140vh;
+        background-color: #3f3f46;
+        height: 140vh;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
 }
 .user-container{
     display: flex;
@@ -151,19 +154,21 @@ input[type="number"]{
     color: white;
 }
 .detail-container{
-            background: aliceblue;
-            box-shadow: 0 0 10px #18181b;
-            padding: 20px;
-            justify-content: center;
-            position: absolute;
-            display: grid;
-            height: 400px;
-            width: 50%;
-
+               background: rgba(0, 0, 0, .8);
+               box-shadow: 0 0 10px #18181b;
+               padding: 20px;
+               position: absolute;
+               height: -webkit-fill-available;
+               width: 50%;
+               gap: 20px;
+               display: inline-grid;
+               color: aliceblue;
+               font-size: 20px;
 }
 .wrapper-detail{
     margin: auto;
     width: 50%;
+    margin: 3rem auto;
 }
 
 .project-container{
@@ -251,11 +256,5 @@ label{
     margin-left: 5px;
 }
 
-.btn-holder{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin-bottom: 15px;
-    margin-right: 5px;
-}
+
 

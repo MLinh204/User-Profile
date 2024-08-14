@@ -17,13 +17,13 @@
 <h1>Your Project</h1>
 <div class="wrapper-detail">
 <div class="detail-container">
-<h2 th:text="'Project: ' + ${project.projectName}"></h2>
-<p th:text="'Description: ' + ${project.projectDescription}"></p>
-<p th:text="'Technologies: ' + ${project.projectTechnologies}"></p>
-<p th:text="'User Position: ' + ${project.userPosition}"></p>
+<h2 th:text="'Project: ' + ${project.projectName}" style="border-bottom: 1.5px solid;"></h2>
+<p th:text="'Description: ' + ${project.projectDescription}" style="border-bottom: 1.5px solid;"></p>
+<p th:text="'Technologies: ' + ${project.projectTechnologies}" style="border-bottom: 1.5px solid;"></p>
+<p th:text="'User Position: ' + ${project.userPosition}" style="border-bottom: 1.5px solid;"></p>
   <div class="btn-holder">
-    <a class="a-tag-edit" th:href="@{/projects/edit/{id}(id=${project.id})}">Edit User Project</a>
-    <a class="a-tag-edit" th:href="@{/users/{id}(id=${project.user.id})}">Back to User Profile</a>
+    <a class="a-tag-edit" id="edit" th:href="@{/projects/edit/{id}(id=${project.id})}">Edit User Project</a>
+    <a class="a-tag-edit" id="return" th:href="@{/users/{id}(id=${project.user.id})}">Back to User Profile</a>
   </div>
 </div>
 </div>

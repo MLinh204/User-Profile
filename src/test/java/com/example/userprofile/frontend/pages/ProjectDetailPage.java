@@ -15,7 +15,7 @@ public class ProjectDetailPage {
         PageFactory.initElements(driver, this);
     }
     public void clickEditProfile(){
-        elements.getEditProfileBtn().click();
+        elements.getEditProjectBtn().click();
     }
     public void clickBackToUserProfile(){
         elements.getBackToProfileBtn().click();

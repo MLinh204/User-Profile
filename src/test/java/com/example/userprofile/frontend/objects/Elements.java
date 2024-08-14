@@ -68,9 +68,9 @@ public class Elements {
     //Project Detail page
     @FindBy(className = "detail-container")
     private WebElement projectDetailForm;
-    @FindBy(xpath = "//a[text()='Edit User Profile']")
-    private WebElement editProfileBtn;
-    @FindBy(xpath = "//a[text()='Back to User Profile']")
+    @FindBy(css = ".btn-holder #edit")
+    private WebElement editProjectBtn;
+    @FindBy(css = ".btn-holder #return")
     private WebElement backToProfileBtn;
     @FindBy(xpath = "//div[@class='detail-container']/h2")
     private WebElement projectDetailName;
@@ -80,7 +80,7 @@ public class Elements {
     private WebElement editUserH2;
 
     //Edit Project Profile
-    @FindBy(className = "form-container")
+    @FindBy(css = ".form-container")
     private WebElement editProjectForm;
 
     public Elements(WebDriver driver) {
@@ -206,9 +206,9 @@ public class Elements {
         return projectDetailForm;
     }
 
-    public WebElement getEditProfileBtn() {
-        scrollIntoView(editProfileBtn);
-        return editProfileBtn;
+    public WebElement getEditProjectBtn() {
+        scrollIntoView(editProjectBtn);
+        return editProjectBtn;
     }
 
     public WebElement getBackToProfileBtn() {

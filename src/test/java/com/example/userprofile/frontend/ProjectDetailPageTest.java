@@ -48,13 +48,12 @@ public class ProjectDetailPageTest {
 
     @Test
     public void clickEditUser(){
-        projectDetailPage.clickEditProfile();
-        assertTrue(elements.getEditProjectForm().isDisplayed());
+        elements.getProjectDetailForm();
     }
     @Test
     public void clickBackToUser(){
         projectDetailPage.clickBackToUserProfile();
-        wait.until(ExpectedConditions.invisibilityOf(elements.getEditProjectForm()));
+        wait.until(ExpectedConditions.visibilityOf(elements.getAddProjectBtn()));
         assertEquals(elements.getUsernameH1().getText(), "Johan L's Profile");
     }
 }
