@@ -83,13 +83,10 @@ public class AddProjectFormTest {
         projectForm.createProject("Johan L", "Exercise for Automation QA", "Java Selenium", "");
         assertTrue(driver.getCurrentUrl().contains("http://localhost:8080/projects/create"));
     }
-}
 
 //    @Test
 //    public void test(){
-//        for (int i = 0; i<=10; i++){
-//            detailPage.clickDeleteBtn("Johan L");
-//            wait.until(ExpectedConditions.visibilityOf(elements.getUsernameH1()));
-//        }
+//        detailPage.clickAddProjectBtn();
+//        elements.getSubmitProjectButton().click();
 //    }
-//}
+}

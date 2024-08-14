@@ -1,5 +1,6 @@
 package com.example.userprofile.frontend.objects;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class Elements {
+    private WebDriver driver;
     //Add project Page
     @FindBy(name = "projectName")
     private WebElement projectNameField;
@@ -17,10 +19,11 @@ public class Elements {
     private WebElement projectTechnologiesField;
     @FindBy(name = "userPosition")
     private WebElement userPositionField;
-    @FindBy(css = "button[type='submit']")
+    @FindBy(xpath = "//button[@type='submit' and text()='Add Project']")
     private WebElement submitProjectButton;
     @FindBy(className = "form-container")
     private WebElement addProjectForm;
+
 
     //Home page
     @FindBy(css = ".user-container")
@@ -29,8 +32,10 @@ public class Elements {
     private WebElement createUserBtn;
     @FindBy(css = ".logo")
     private WebElement logo;
-    @FindBy(className = "nav-btn")
+    @FindBy(css = "nav .a-tag-edit")
     private WebElement navButton;
+    @FindBy(linkText = "Delete User")
+    private WebElement deleteUserBtn;
 
     //Create User Page
     @FindBy(name = "age")
@@ -70,119 +75,169 @@ public class Elements {
     @FindBy(xpath = "//div[@class='detail-container']/h2")
     private WebElement projectDetailName;
 
+    //Edit User Profile
+    @FindBy(css = "h2")
+    private WebElement editUserH2;
+
     //Edit Project Profile
     @FindBy(className = "form-container")
     private WebElement editProjectForm;
 
-    public Elements(WebDriver driver){
+    public Elements(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
+    private void scrollIntoView(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
     public WebElement getProjectNameField() {
+        scrollIntoView(projectNameField);
         return projectNameField;
     }
 
     public WebElement getProjectDescriptionField() {
+        scrollIntoView(projectDescriptionField);
         return projectDescriptionField;
     }
 
     public WebElement getProjectTechnologiesField() {
+        scrollIntoView(projectTechnologiesField);
         return projectTechnologiesField;
     }
 
     public WebElement getUserPositionField() {
+        scrollIntoView(userPositionField);
         return userPositionField;
     }
 
     public WebElement getSubmitProjectButton() {
+        scrollIntoView(submitProjectButton);
         return submitProjectButton;
     }
 
     public List<WebElement> getUserContainer() {
+        if (!userContainer.isEmpty()) {
+            scrollIntoView(userContainer.get(0));
+        }
         return userContainer;
     }
 
     public WebElement getCreateUserBtn() {
+        scrollIntoView(createUserBtn);
         return createUserBtn;
     }
 
     public WebElement getLogo() {
+        scrollIntoView(logo);
         return logo;
     }
 
     public WebElement getNavButton() {
+        scrollIntoView(navButton);
         return navButton;
     }
 
     public WebElement getAgeField() {
+        scrollIntoView(ageField);
         return ageField;
     }
 
     public WebElement getNameField() {
+        scrollIntoView(nameField);
         return nameField;
     }
 
     public WebElement getYOEField() {
+        scrollIntoView(YOEField);
         return YOEField;
     }
 
     public WebElement getPositionField() {
+        scrollIntoView(positionField);
         return positionField;
     }
 
     public WebElement getProfilePictureField() {
+        scrollIntoView(profilePictureField);
         return profilePictureField;
     }
 
     public WebElement getSubmitUserButton() {
+        scrollIntoView(submitUserButton);
         return submitUserButton;
     }
 
     public List<WebElement> getProjectHolder() {
+        if (!projectHolder.isEmpty()) {
+            scrollIntoView(projectHolder.get(0));
+        }
         return projectHolder;
     }
 
     public WebElement getEditBtn() {
+        scrollIntoView(editBtn);
         return editBtn;
     }
 
     public WebElement getAddProjectBtn() {
+        scrollIntoView(addProjectBtn);
         return addProjectBtn;
     }
 
     public WebElement getViewProjectBtn() {
+        scrollIntoView(viewProjectBtn);
         return viewProjectBtn;
     }
 
     public WebElement getDeleteProjectBtn() {
+        scrollIntoView(deleteProjectBtn);
         return deleteProjectBtn;
     }
 
     public WebElement getAddProjectForm() {
+        scrollIntoView(addProjectForm);
         return addProjectForm;
     }
 
     public WebElement getProjectDetailForm() {
+        scrollIntoView(projectDetailForm);
         return projectDetailForm;
     }
 
     public WebElement getEditProfileBtn() {
+        scrollIntoView(editProfileBtn);
         return editProfileBtn;
     }
 
     public WebElement getBackToProfileBtn() {
+        scrollIntoView(backToProfileBtn);
         return backToProfileBtn;
     }
 
     public WebElement getProjectDetailName() {
+        scrollIntoView(projectDetailName);
         return projectDetailName;
     }
 
     public WebElement getEditProjectForm() {
+        scrollIntoView(editProjectForm);
         return editProjectForm;
     }
 
     public WebElement getUsernameH1() {
+        scrollIntoView(usernameH1);
         return usernameH1;
+    }
+
+    public WebElement getDeleteUserBtn() {
+        scrollIntoView(deleteUserBtn);
+        return deleteUserBtn;
+    }
+
+    public WebElement getEditUserH2() {
+        scrollIntoView(editUserH2);
+        return editUserH2;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.userprofile.frontend;
 
 import com.example.userprofile.frontend.objects.ConfigProperties;
+import com.example.userprofile.frontend.objects.Elements;
 import com.example.userprofile.frontend.pages.CreateUserForm;
 import com.example.userprofile.frontend.pages.HomePage;
 import org.junit.jupiter.api.AfterAll;
@@ -21,6 +22,7 @@ public class HomePageTest {
     private WebDriver webDriver;
     private HomePage homePage;
     private CreateUserForm createUserForm;
+    private Elements elements;
 
     @BeforeEach
     public void setup(){
@@ -28,6 +30,7 @@ public class HomePageTest {
         webDriver = new ChromeDriver();
         homePage = new HomePage(webDriver);
         createUserForm = new CreateUserForm(webDriver);
+        elements = new Elements(webDriver);
         homePage.navigateTo();
     }
     @AfterEach
@@ -39,8 +42,8 @@ public class HomePageTest {
 
     @Test
     public void testHomePageLoads(){
-        assertTrue(webDriver.getTitle().contains("Title"));
-        assertTrue(webDriver.findElement(By.className("nav-btn")).getText().contains("User Profile List"));
+        assertTrue(webDriver.getTitle().contains("Home"));
+        assertTrue(elements.getNavButton().getText().contains("User Profile List"));
         assertEquals("User Profile List", webDriver.findElement(By.tagName("h1")).getText());
         assertTrue(webDriver.findElement(By.cssSelector(".logo")).isDisplayed());
         assertTrue(webDriver.findElement(By.tagName("button")).getText().contains("Create User Profile"));
@@ -72,7 +75,7 @@ public class HomePageTest {
     @Test
     public void clickEditBtn(){
         homePage.clickEditBtn("Johan L");
-        assertEquals("Edit User Profile", webDriver.findElement(By.tagName("h2")).getText());
+        assertEquals("Edit User Profile", elements.getEditUserH2().getText());
     }
     @Test
     public void clickDeleteBtn(){

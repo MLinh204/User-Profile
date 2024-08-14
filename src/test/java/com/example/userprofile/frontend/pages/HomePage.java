@@ -2,10 +2,7 @@ package com.example.userprofile.frontend.pages;
 
 import com.example.userprofile.frontend.objects.ConfigProperties;
 import com.example.userprofile.frontend.objects.Elements;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,10 +17,12 @@ public class HomePage {
 
     private WebDriverWait wait;
     private Elements elements;
+    private JavascriptExecutor js;
 
     public HomePage(WebDriver driver){
         this.webDriver = driver;
         this.elements = new Elements(driver);
+        this.js = (JavascriptExecutor) driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         PageFactory.initElements(driver, this);
@@ -67,11 +66,11 @@ public class HomePage {
     }
     public void clickDeleteBtn(String username){
         int currentContainer = getUserCount();
-        WebElement deleteBtn;
         for (WebElement container : elements.getUserContainer()){
             WebElement nameElement = container.findElement(By.tagName("h2"));
             if(nameElement.getText().equals(username)){
-                deleteBtn = container.findElement(By.linkText("Delete User"));
+                WebElement deleteBtn = container.findElement(By.linkText("Delete User"));
+                js.executeScript("arguments[0].scrollIntoView(true);", deleteBtn);
                 deleteBtn.click();
                 Alert confirmDialog = wait.until(ExpectedConditions.alertIsPresent());
                 confirmDialog.accept();
